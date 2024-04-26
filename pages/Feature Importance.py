@@ -5,6 +5,8 @@ import pandas as pd
 import xgboost as xgb
 import matplotlib.pyplot as plt
 
+st.sidebar.markdown("# Feature Importance")
+
 # XGBoost 모델 로드
 with open('xgb_model.pkl', 'rb') as f:
     xgb_model = pickle.load(f)
@@ -34,5 +36,5 @@ st.title('Feature Importance Top 5')
 fig, ax = plt.subplots()
 ax.barh(top_features[::-1], top_importance[::-1])  # 역순으로 출력
 ax.set_xlabel('Feature Importance')
-ax.set_title('Top 5 Feature Importance (Ascending Order)')
+ax.set_title('Top 5 Feature Importance')
 st.pyplot(fig)
